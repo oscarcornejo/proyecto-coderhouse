@@ -1,51 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Formulario de contacto</title>
+  <meta charset="UTF-8" />
+  <title>Formulario</title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/slider-pro.css"/>
   <link rel="stylesheet" type="text/css" href="css/estilos.css">
 </head>
 <body>
-
-  <section class="container">
-    <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4 well">
-      <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputFile">File input</label>
-            <input type="file" id="exampleInputFile">
-            <p class="help-block">Example block-level help text here.</p>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox"> Check me out
-            </label>
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+  <!-- Navigation Menu -->
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">CHITCHAT</a>
       </div>
-      <div class="col-md-4"></div>
+      <div class="collapse navbar-collapse" id="navbar1">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#miModal">Contacto</a></li>
+        </ul>
+      </div>
     </div>
-  </section>
+  </nav>
 
+  <div class="slider-pro" id="my-slider">
+    <div class="sp-slides">
+      <!-- Slide 1 -->
+      <div class="sp-slide">
+        <img class="sp-image" src="img/slide1.jpeg"/>
+        <h2 class="sp-layer">¿TIENES DUDAS? ¡CONTÁCTANOS!</h2>
+        <p class="sp-layer">
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#miModal">CONVERSEMOS</button>
+        </p>
 
+      </div>
 
+      <!-- Slide 2 -->
+      <div class="sp-slide">
+        <img class="sp-image" src="img/slide2.jpeg"/>
+        <h2 class="sp-layer">Lorem ipsum dolor sit amet</h2>
+        <p class="sp-layer">consectetur adipisicing elit</p>
+      </div>
 
+      <!-- Slide 3 -->
+      <div class="sp-slide">
+        <img class="sp-image" src="img/slide3.jpeg"/>
+        <h2 class="sp-layer">Lorem ipsum dolor sit amet</h2>
+        <p class="sp-layer">consectetur adipisicing elit</p>
+      </div>
+    </div>
+  </div>
 
+  <!-- Modal Formulario -->
+  <div id="miModal" class="modal fade" aria-labelledby="myModalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+          <h4 class="modal-title">Formulario de Contacto</h4>
+        </div>
+        <!-- Inicio Cuerpo/body del Modal -->
+        <div class="modal-body" id="myModalBody">
+
+          <form id="enviarForm">
+
+            <div class="form-group">
+              <label for="name" class="control-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre" placeholder="Tu nombre"/>
+            </div>
+
+            <div class="form-group franja-error">
+              <label for="emailid" class="control-label">Email</label>
+              <input type="text" class="form-control" id="correo" placeholder="tuemail@dominio.cl" />
+            </div>
+
+            <div class="form-group franja-error">
+              <label for="subject" class="control-label">Asunto</label>
+              <input type="text" class="form-control" id="asunto" placeholder="Asunto" />
+            </div>
+
+            <div class="form-group franja-error">
+              <label for="message" class="control-label">Mensaje</label>
+              <textarea class="form-control" id="mensaje" rows="4" placeholder="Mensaje" ></textarea>
+            </div>
+
+          </form>
+        </div>
+        <!-- Fin Cuerpo/body del Modal -->
+        <!-- Inicio Footer del Modal -->
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Contactar</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Regresar</button>
+        </div>
+        <!-- Fin Footer del Modal -->
+
+        <div id="enviado"></div>
+        <div id="error" class='alert alert-danger' role='alert'>Complete los campos</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Fin Modal Formulario -->
 
   <!-- Jquery! -->
-  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/script-formulario.js"></script>
+  
+  <script src="js/jquery.sliderPro.js"></script>
+  <script type="text/javascript">
+    jQuery( document ).ready(function( $ ) {
+      $( '#my-slider' ).sliderPro({
+        width: '100%',
+        height: 600,
+        arrows: true,
+        fade: true,
+      });
+    });
+  </script>
 </body>
 </html>
